@@ -13,15 +13,15 @@ RCT_EXPORT_MODULE(RNBraintreeDropIn)
 RCT_EXPORT_METHOD(show:(NSDictionary*)options resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 {
 
-    if([options[@"darkTheme"] boolValue]){
-        if (@available(iOS 13.0, *)) {
-            BTUIKAppearance.sharedInstance.colorScheme = BTUIKColorSchemeDynamic;
-        } else {
-            BTUIKAppearance.sharedInstance.colorScheme = BTUIKColorSchemeDark;
-        }
-    } else {
-        BTUIKAppearance.sharedInstance.colorScheme = BTUIKColorSchemeLight;
-    }
+    // if([options[@"darkTheme"] boolValue]){
+    //     if (@available(iOS 13.0, *)) {
+    //         BTUIKAppearance.sharedInstance.colorScheme = BTUIKColorSchemeDynamic;
+    //     } else {
+    //         BTUIKAppearance.sharedInstance.colorScheme = BTUIKColorSchemeDark;
+    //     }
+    // } else {
+    //     BTUIKAppearance.sharedInstance.colorScheme = BTUIKColorSchemeLight;
+    // }
 
     if(options[@"fontFamily"]){
         [BTUIKAppearance sharedInstance].fontFamily = options[@"fontFamily"];
@@ -53,7 +53,7 @@ RCT_EXPORT_METHOD(show:(NSDictionary*)options resolver:(RCTPromiseResolveBlock)r
         request.threeDSecureVerification = YES;
         BTThreeDSecureRequest *threeDSecureRequest = [[BTThreeDSecureRequest alloc] init];
         threeDSecureRequest.amount = [NSDecimalNumber decimalNumberWithString:threeDSecureAmount.stringValue];
-        request.threeDSecureRequest = threeDSecureRequest;
+        // request.threeDSecureRequest = threeDSecureRequest;
 
     }
 
